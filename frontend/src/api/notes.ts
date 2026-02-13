@@ -3,7 +3,7 @@ import api from "./axios";
 export interface Note {
   _id: string;
   title: string;
-  description?: string;
+  content?: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -21,7 +21,7 @@ export const getNoteById = async (id: string): Promise<Note> => {
 };
 
 // ساخت نوت جدید
-export const createNote = async (data: Pick<Note, "title" | "description">): Promise<Note> => {
+export const createNote = async (data: Pick<Note, "title" | "content">): Promise<Note> => {
   const res = await api.post("/notes", data);
   return res.data;
 };
@@ -29,7 +29,7 @@ export const createNote = async (data: Pick<Note, "title" | "description">): Pro
 // آپدیت نوت
 export const updateNote = async (
   id: string,
-  data: Pick<Note, "title" | "description">
+  data: Pick<Note, "title" | "content">
 ): Promise<Note> => {
   const res = await api.put(`/notes/${id}`, data);
   return res.data;
