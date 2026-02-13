@@ -1,13 +1,17 @@
-import MainLayout from "./components/MainLayout";
+import { Toaster } from "react-hot-toast";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes"
 
-const App = () => {
-  return (
-     <div className="min-h-screen">
-    
-      <MainLayout/>
-      
-    </div>
+function App() {
+
+    return (
+    <>
+      <RouterProvider router={router} />
+      <Toaster position="bottom-right" /> 
+    </>
   );
-};
+}
+
 
 export default App;
+

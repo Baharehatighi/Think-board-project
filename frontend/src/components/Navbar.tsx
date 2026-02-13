@@ -1,6 +1,10 @@
 import { Plus } from 'lucide-react';
 import { Brain} from 'lucide-react';
-const Navbar = ()=> {
+interface NavbarProps {
+  onCreate: () => void;
+}
+
+const Navbar = ({ onCreate}:NavbarProps)=> {
   return (
      <header className="w-full  bg-gray-900 shadow-2xl">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -16,7 +20,7 @@ const Navbar = ()=> {
 
 
        
-        <button className="flex items-center gap-2 bg-blue-900 text-white px-4 py-2 rounded-xl hover:bg-blue-400 transition">
+        <button onClick={onCreate} className="flex items-center gap-2 bg-blue-900 text-white px-4 py-2 rounded-xl hover:bg-blue-400 transition">
           <Plus size={18} />
           New Note
         </button>
