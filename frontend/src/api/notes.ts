@@ -1,12 +1,7 @@
 import api from "./axios";
 
-export interface Note {
-  _id: string;
-  title: string;
-  content?: string;
-  createdAt: string;
-  updatedAt: string;
-}
+import type { Note } from "../types/note";
+
 
 // گرفتن همه نوت‌ها
 export const getNotes = async (): Promise<Note[]> => {
@@ -27,15 +22,19 @@ export const createNote = async (data: Pick<Note, "title" | "content">): Promise
 };
 
 // آپدیت نوت
-export const updateNote = async (
-  id: string,
-  data: Pick<Note, "title" | "content">
-): Promise<Note> => {
-  const res = await api.put(`/notes/${id}`, data);
-  return res.data;
-};
+export const updateNote = async ({
+  id,
+  title,
+  content,
+}: {
+  id: string;
+  title: string;
+  content: string;
+}) => {
+  const res = await api.put(`/notes/${id}`, {
+    title,
+    content,
+  });
 
-// حذف نوت
-export const deleteNote = async (id: string): Promise<void> => {
-  await api.delete(`/notes/${id}`);
+  return res.data;
 };
