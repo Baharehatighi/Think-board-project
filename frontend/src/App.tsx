@@ -1,18 +1,14 @@
 import { Toaster } from "react-hot-toast";
 import { RouterProvider } from "react-router-dom";
-import { router } from "./routes"
+import { router } from "./routes";
 
 function App() {
-
-    return (
+  return (
     <>
-    
       <RouterProvider router={router} />
-      <Toaster position="bottom-right" /> 
+      <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
     </>
   );
 }
 
-
 export default App;
-
