@@ -23,13 +23,13 @@ const ConfirmationModal = ({
             onClick={onConfirm}
             className="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-400"
           >
-            بله
+           Yes
           </button>
           <button
             onClick={onCancel}
             className="bg-blue-800 px-4 py-2 rounded hover:bg-gray-400"
           >
-            خیر
+            No
           </button>
         </div>
       </div>
